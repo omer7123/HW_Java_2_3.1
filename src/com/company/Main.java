@@ -13,6 +13,11 @@ public class Main {
                 System.out.println("С вашего баланса списалось 6000" + " \nОстаток на счете составляет: " + Ilya.getAmount());
                 System.out.println("");
             } catch (LimitException e ) {
+                try {
+                    Ilya.withDraw((int) Ilya.getAmount());
+                } catch (LimitException e1) {
+                    e1.printStackTrace();
+                }
                 System.out.println(e.getMessage() + e.getRemainingAmount());
                 System.out.println("Остаток на счете: " + Ilya.getAmount());
                 isFinished = false;
