@@ -10,11 +10,10 @@ public class BankAccount {
 
     void withDraw(int sum) throws LimitException {
         if (getAmount() < sum) {
-            amount = getAmount() - getAmount();
-            throw new LimitException("Недостаточно средств на лицевом счете и списалась оставшееся сумма: ", 2000);
-
+            throw new LimitException("Недостаточно средств на лицевом счете и списалась оставшиеся сумма: ", 2000);
+        }else{
+            amount = getAmount() - sum;
         }
-        amount = getAmount() - sum;
     }
 
 
